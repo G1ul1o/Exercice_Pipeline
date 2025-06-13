@@ -1,24 +1,76 @@
 import logo from './logo.svg';
 import './App.css';
+import './index.css';
+import React, { useState } from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+  
+  const [counter, setCounter] = useState(0);
+
+  const handleClick1 = () => {
+      setCounter(counter + 1);
+    };
+
+   
+  const handleClick2 = () => {
+      setCounter(counter - 1);
+    };
+
+    return (
+     <div
+            style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "300%",
+                position: "absolute",
+                width: "100%",
+                height: "100%",
+                top: "-15%",
+            }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+            Counter App
+            <div id="count_number"
+                style={{
+                    fontSize: "120%",
+                    position: "relative",
+                    top: "10vh",
+                }}
+            >
+                {counter}
+            </div>
+            <div className="buttons">
+                <button
+                    style={{
+                        fontSize: "60%",
+                        position: "relative",
+                        top: "20vh",
+                        marginRight: "5px",
+                        backgroundColor: "green",
+                        borderRadius: "8%",
+                        color: "white",
+                    }}
+                    onClick={handleClick1}
+                >
+                    Increment
+                </button>
+                <button
+                    style={{
+                        fontSize: "60%",
+                        position: "relative",
+                        top: "20vh",
+                        marginLeft: "5px",
+                        backgroundColor: "red",
+                        borderRadius: "8%",
+                        color: "white",
+                    }}
+                    onClick={handleClick2}
+                >
+                    Decrement
+                </button>
+            </div>
+        </div>
   );
 }
 
