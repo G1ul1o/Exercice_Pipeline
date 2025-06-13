@@ -5,7 +5,8 @@ on:
     branches: [ "dev" ]
 
 jobs:
-
+  build:
+    - run: npm start
   cypress-run:
     runs-on: ubuntu-24.04
     steps:
