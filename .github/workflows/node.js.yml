@@ -5,12 +5,19 @@ on:
     branches: [ "dev" ]
 
 jobs:
-  build:
-    - run: npm start
-  cypress-run:
-    runs-on: ubuntu-24.04
+  build-and-test:
+    runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Cypress run
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Cypress tests with React server
         uses: cypress-io/github-action@v6
+        with:
+          start: npm start
+          wait-on: 'http://localhost:3000'
+          wait-on-timeout: 60
