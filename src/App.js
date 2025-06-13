@@ -40,6 +40,7 @@ function App() {
             >
                 {counter}
             </div>
+            <h1>Count</h1>
             <div className="buttons">
                 <button
                     style={{
